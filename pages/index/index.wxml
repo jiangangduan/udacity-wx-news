@@ -1,13 +1,20 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+<view class="newslist-wrapper">
+  <view class="newslist">
+    <scroll-view>
+      <view class="newslist-item" wx:for="{{newslist}}">
+        <view class="newslist-left-box">
+          <view class="newslist-title">{{item.title}}
+          </view>
+          <view class="newslist-source-date">
+            <view class="newslist-source">{{item.source}}</view>
+            <view class="newslist-date">{{item.time}}</view>
+          </view>
+        </view>
+        <view class="newslist-right-box">
+          <image class="newslist-image" src="{{item.image}}" mode="scaleToFill"></image>
+        </view>
+      </view>
+    </scroll-view>
   </view>
 </view>
