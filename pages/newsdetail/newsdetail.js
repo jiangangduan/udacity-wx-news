@@ -4,7 +4,6 @@ Page({
   /**
    * 页面的初始数据
    */
-  /*newsid : '1523074607642'*/
   data: {
     newsid: '1523074607642'
   },
@@ -13,29 +12,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    /* for debug usage
+    newsid = this.data.newsid;
+    */
+
     let newsid = options.id;
-    //newsid = this.data.newsid;
-    console.log(newsid)
-    this.getNewsDetail(newsid)
+    this.setData(
+      {newsid: newsid}
+    )
+    this.getNewsDetail()
   },
-  getNewsDetail(newsid) {
+  /*
+     Get the news detailed based on the news id     
+  */
+  getNewsDetail(callback) {
     wx.request({
       url: 'https://test-miniprogram.com/api/news/detail',
       data: {
-        id: newsid
+        id: this.data.newsid
       },
-      success: res => {
-        console.log(res)
+      success: res => {       
 
         let theDate = new Date(res.data.result.date)
         let theReadCount = res.data.result.readCount
-        let theSource = res.data.result.source 
+        let theSource = res.data.result.source
         let theTitle = res.data.result.title
-
-        console.log("=====================")
-        console.log(res.data.result.source)
-        console.log(theSource)
-        console.log(theReadCount)
 
         let theContent = []
         for (let i = 0; i < res.data.result.content.length; i++) {
@@ -62,15 +63,16 @@ Page({
             theImageSource: theImageSource
           })
         }
-
         this.setData({
           theContent: theContent,
           theDate: theDate.getHours() + ":" + theDate.getMinutes(),
           theSource: theSource,
           theReadCount: "阅读：" + theReadCount,
-          theTitle: theTitle          
+          theTitle: theTitle
         })
-
+      },
+      complete: () => {
+        callback && callback()
       }
     })
   },
@@ -106,7 +108,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getNewsDetail(() => {
+      wx.stopPullDownRefresh()
+    })
   },
 
   /**

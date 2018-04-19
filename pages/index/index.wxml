@@ -1,8 +1,23 @@
 <!--index.wxml-->
 <view class="newslist-wrapper">
-  <view class="newslist">
-    <scroll-view>
-      <view class="newslist-item"  id="{{item.id}}" bindtap="onClickNewsDetails" wx:for="{{newslist}}">
+  <view class="newslist-nav">
+  <!--TODO: use wx:if to implement the nav bar effect-->
+    <view class="newslist-nav-item" id="{{item.id}}" bindtap="onClickNav" wx:for="{{navlist}}">
+      <block wx:if="{{item.id == newstype}}">
+        <view class="newslist-nav-item-selected">{{item.title}}</view>
+        <view class="newslist-nav-line-highlight"></view>
+      </block>
+      <block wx:if="{{item.id != newstype}}">
+        <view class="newslist-nav-item-unselected">{{item.title}}</view>
+        <view class="newslist-nav-line-unhighlight"></view>
+      </block>
+    </view>
+  </view>
+  <view class="hidden-newslist-nav">
+  </view>
+  <scroll-view>
+    <view class="newslist">
+      <view class="newslist-item" id="{{item.id}}" bindtap="onClickNewsDetails" wx:for="{{newslist}}">
         <view class="newslist-left-box">
           <view class="newslist-title">{{item.title}}
           </view>
@@ -15,6 +30,7 @@
           <image class="newslist-image" src="{{item.image}}" mode="scaleToFill"></image>
         </view>
       </view>
-    </scroll-view>
-  </view>
+    </view>
+  </scroll-view>
+
 </view>

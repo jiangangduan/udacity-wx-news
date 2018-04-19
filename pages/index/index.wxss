@@ -2,14 +2,74 @@
 
 .newslist-wrapper {
   position: relative;
-  padding-top: 20rpx;
+  padding-top: 5rpx;  
+  height: 750rpx;
+}
+
+/**
+  TODO: There may be a new way to implement the navbar
+  https://developers.weixin.qq.com/miniprogram/dev/api/ui-tabbar.html
+**/
+.newslist-nav { 
+  position: fixed;   
+  display: flex;
+  flex-direction: row;  
+  Width: 750rpx;
+  height: 60rpx;
+  justify-content: center;
+  align-items: center;  
+  font-size: 40rpx;
+  line-height: 56rpx;
+  padding-bottom: 20rpx;
+  top: 0rpx;
+  background-color:#ccffff;
+  z-index: 50; 
   padding-left: 25rpx;
-  height: 700rpx;
+}
+
+/**
+  TODO: dumb way to implement the Nav bar effect with hidden block  
+**/
+.hidden-newslist-nav {
+  Width: 750rpx;
+  height: 70rpx;  
+}
+
+.newslist-nav-item {  
+  height: 60rpx;
+  width: 100rpx;
+  display: flex;
+  flex-direction: column;  
+  margin-bottom: 5rpx;  
+}
+
+.newslist-nav-item-selected {
+  font-weight: bold;
+}
+
+.newslist-nav-item-unselected {
+  font-weight: normal;
+}
+
+/**
+  TODO: The Nav bar position and highlight underline can be worked in a better way
+**/
+.newslist-nav-line-highlight {
+  height: 5rpx;
+  width: 70rpx;
+  border-top: 1px solid rgba(0, 0, 0, 1);
+}
+
+.newslist-nav-line-unhighlight {
+  height: 5rpx;
+  width: 70rpx;
 }
 
 .newslist {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  
+  width: 700rpx;
+  margin-left: 25rpx;
 }
 
 .newslist-item {

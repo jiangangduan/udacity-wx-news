@@ -7,6 +7,7 @@
       <view class='newsdetail-subtitle-time'>{{theDate}}</view>
       <view class='newsdetail-subtitle-readcount'>{{theReadCount}}</view>      
     </view>
+    <!--TODO: can't find a way to directly generate DOM, so use wx:if here-->
     <view class="newsdetail-content-wrapper">
       <view class="newsdetail-content" wx:for="{{theContent}}">
         <block wx:if="{{item.theType == 1 }}">

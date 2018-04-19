@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
+    "pages/index/index",    
     "pages/newsdetail/newsdetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "新闻资讯",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#ccffff",
+    "navigationBarTitleText": "快读 · 咨询",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   }
 }
