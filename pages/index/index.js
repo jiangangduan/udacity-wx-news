@@ -10,6 +10,9 @@ Page({
   onClickNewsDetails: function (event) {
     let newsid = event.currentTarget.id
     console.log(newsid)
+    wx.navigateTo({
+      url: '/pages/newsdetail/newsdetail?id='+newsid
+    })
   },
   getNewsList(newstype) {
     console.log("news type is "+newstype)
@@ -23,11 +26,8 @@ Page({
         let newslist = []        
         for (let i = 0; i < result.length; i++) {          
           let theDate = new Date(result[i].date)             
-          let theSource = "未知新闻来源"
-          if (result[i].source == null) {
-            let theSource = result[i].source
-          } 
-
+          let theSource = result[i].source
+          
           newslist.push({
             id: result[i].id,
             title: result[i].title,

@@ -1,0 +1,26 @@
+<!--pages/newsdetail/newsdetail.wxml-->
+<view class='newsdetail-wrapper'>
+  <view class='newsdetail-title'>
+    {{theTitle}}
+    <view class='newsdetail-subtitle'>
+      <view class='newsdetail-subtitle-source'>{{theSource?theSource:"未知新闻来源"}}</view>
+      <view class='newsdetail-subtitle-time'>{{theDate}}</view>
+      <view class='newsdetail-subtitle-readcount'>{{theReadCount}}</view>      
+    </view>
+    <view class="newsdetail-content-wrapper">
+      <view class="newsdetail-content" wx:for="{{theContent}}">
+        <block wx:if="{{item.theType == 1 }}">
+          <view class="newsdetail-regular-text">{{item.theText}}</view>
+        </block>
+        <block wx:if="{{item.theType == 2 }}">
+          <view >
+            <image class="newsdetail-image" src="{{item.theImageSource}}"  mode="scaleToFill"></image>
+          </view>
+        </block>
+        <block wx:if="{{item.theType == 3 }}">
+          <view class="newsdetail-strong-text">{{item.theText}}</view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

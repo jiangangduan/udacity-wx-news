@@ -7,7 +7,7 @@
           <view class="newslist-title">{{item.title}}
           </view>
           <view class="newslist-source-date">
-            <view class="newslist-source">{{item.source}}</view>
+            <view class="newslist-source">{{item.source?item.source:"未知新闻来源"}}</view>
             <view class="newslist-date">{{item.time}}</view>
           </view>
         </view>
