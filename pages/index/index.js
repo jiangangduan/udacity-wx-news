@@ -7,6 +7,10 @@ Page({
   onLoad: function () {
     this.getNewsList(this.data.newstype)
   },
+  onClickNewsDetails: function (event) {
+    let newsid = event.currentTarget.id
+    console.log(newsid)
+  },
   getNewsList(newstype) {
     console.log("news type is "+newstype)
     wx.request({

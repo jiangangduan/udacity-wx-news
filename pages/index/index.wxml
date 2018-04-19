@@ -2,7 +2,7 @@
 <view class="newslist-wrapper">
   <view class="newslist">
     <scroll-view>
-      <view class="newslist-item" wx:for="{{newslist}}">
+      <view class="newslist-item"  id="{{item.id}}" bindtap="onClickNewsDetails" wx:for="{{newslist}}">
         <view class="newslist-left-box">
           <view class="newslist-title">{{item.title}}
           </view>
