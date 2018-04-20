@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="newslist-wrapper">
   <view class="newslist-nav">
-  <!--TODO: use wx:if to implement the nav bar effect-->
+    <!--TODO: use wx:if to implement the nav bar effect-->
     <view class="newslist-nav-item" id="{{item.id}}" bindtap="onClickNav" wx:for="{{navlist}}">
       <block wx:if="{{item.id == newstype}}">
         <view class="newslist-nav-item-selected">{{item.title}}</view>
@@ -27,7 +27,12 @@
           </view>
         </view>
         <view class="newslist-right-box">
-          <image class="newslist-image" src="{{item.image}}" mode="scaleToFill"></image>
+          <view wx:if="{{item.image}}">
+            <image class="newslist-image" src="{{item.image}}" mode="scaleToFill"></image>
+          </view>
+          <view wx:else>
+            <image class="newslist-image" src="/images/404.jpg" mode="scaleToFill"></image> 
+          </view>
         </view>
       </view>
     </view>
