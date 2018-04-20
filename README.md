@@ -1,5 +1,5 @@
 # udacity-wx-news
-the udacity weixin project
+the udacity weixin project for https://github.com/udacity/cn-wechat-weather/blob/default-1-1/news_project/news_project.md
 
 TODO:
 * 可以使用 util.js中的日期格式化函数 instead of theDate.getHours() + ":" + theDate.getMinutes()
