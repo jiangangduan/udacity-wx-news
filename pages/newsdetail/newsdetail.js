@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    newsid: '1523074607642'
+    newsId: ''
   },
 
   /**
@@ -13,12 +13,12 @@ Page({
    */
   onLoad: function (options) {
     /* for debug usage
-    newsid = this.data.newsid;
+    newsId = this.data.newsId;
     */
 
-    let newsid = options.id;
+    let newsId = options.id;
     this.setData(
-      {newsid: newsid}
+      { newsId: newsId }
     )
     this.getNewsDetail()
   },
@@ -29,9 +29,9 @@ Page({
     wx.request({
       url: 'https://test-miniprogram.com/api/news/detail',
       data: {
-        id: this.data.newsid
+        id: this.data.newsId
       },
-      success: res => {       
+      success: res => {
 
         let theDate = new Date(res.data.result.date)
         let theReadCount = res.data.result.readCount
@@ -46,16 +46,12 @@ Page({
           if (res.data.result.content[i].type == "image") {
             theType = 2
             theImageSource = res.data.result.content[i].src
-          } else {
-            if (res.data.result.content[i].type == "p") {
-              theType = 1
-              theText = res.data.result.content[i].text
-            } else {
-              if (res.data.result.content[i].type == "strong") {
-                theType = 3
-                theText = res.data.result.content[i].text
-              }
-            }
+          } else if (res.data.result.content[i].type == "p") {
+            theType = 1
+            theText = res.data.result.content[i].text
+          } else if (res.data.result.content[i].type == "strong") {
+            theType = 3
+            theText = res.data.result.content[i].text
           }
           theContent.push({
             theType: theType,
