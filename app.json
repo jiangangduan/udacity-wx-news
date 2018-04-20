@@ -3,8 +3,8 @@
     "pages/index/index",    
     "pages/newsdetail/newsdetail"
   ],
-  "window": {
-    "backgroundTextStyle": "light",
+  "window": {    
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#ccffff",
     "navigationBarTitleText": "快读 · 咨询",
     "navigationBarTextStyle": "black",

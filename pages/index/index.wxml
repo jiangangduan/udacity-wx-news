@@ -26,12 +26,7 @@
           </view>
         </view>
         <view class="newslist-right-box">
-          <view wx:if="{{item.image}}">
-            <image class="newslist-image" src="{{item.image}}" mode="scaleToFill"></image>
-          </view>
-          <view wx:else>
-            <image class="newslist-image" src="/images/404.jpg" mode="scaleToFill"></image> 
-          </view>
+          <image class="newslist-image" src="{{item.image?item.image:'/images/404.jpg'}}" mode="scaleToFill"></image>          
         </view>
       </view>
     </view>

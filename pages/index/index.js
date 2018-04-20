@@ -78,7 +78,10 @@ Page({
             title: result[i].title,
             source: theSource,
             time: theDate.getHours() + ":" + theDate.getMinutes(),
-            image: result[i].firstImage            
+            image: result[i].firstImage
+            /* for test purpose
+              image: ''
+            */
           })
         }
         this.setData({
